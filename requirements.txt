@@ -1,0 +1,9 @@
+aiohttp
+aiosqlite
+discord.py
+python-dotenv
+langchain
+langchain-nvidia-ai-endpoints
+langchain-openai
+langgraph
+langchain-google-genai

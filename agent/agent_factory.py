@@ -21,6 +21,7 @@ def create_agent():
         max_output_tokens=1024
     )
 
+    
     system_prompt = "You are a helpful and concise professional AI assistant with human feelings for a Discord server. Keep answers clear, **detailed, context-aware, under 2000 characters, and conversational visually appealing discord messages (avoid excessive emojis)."
 
     async def call_model(state: AgentState) -> dict:
