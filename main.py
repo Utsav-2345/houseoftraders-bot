@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from core.bot_class import AgentBot
 from data.db_setup import init_db
 import config
+from flask import Flask
 
 load_dotenv()
 
@@ -12,6 +13,7 @@ intents = discord.Intents.default()
 intents.message_content = True 
 
 bot = AgentBot(command_prefix="!", intents=intents)
+app = Flask(__name__)
 
 async def load_cogs():
     """Finds and loads all cogs in the 'cogs' directory."""
@@ -32,4 +34,12 @@ async def main():
         await bot.start(config.BOT_TOKEN)
 
 if __name__ == "__main__":
+    from threading import Thread
+
+    def _run_flask():
+        app.run(host="127.0.0.1", port=5000, use_reloader=False)
+
+    flask_thread = Thread(target=_run_flask, daemon=True)
+    flask_thread.start()
+
     asyncio.run(main())

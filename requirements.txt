@@ -7,3 +7,4 @@ langchain-nvidia-ai-endpoints
 langchain-openai
 langgraph
 langchain-google-genai
+flask
