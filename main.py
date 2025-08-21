@@ -37,7 +37,7 @@ if __name__ == "__main__":
     from threading import Thread
 
     def _run_flask():
-        app.run(host="127.0.0.1", port=5000, use_reloader=False)
+        app.run(host="0.0.0.0", port=10000, use_reloader=False)
 
     flask_thread = Thread(target=_run_flask, daemon=True)
     flask_thread.start()
